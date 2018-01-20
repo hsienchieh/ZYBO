@@ -39,7 +39,7 @@ set_property "default_lib" "xil_defaultlib" $obj
 set_property "part" $part $obj
 set_property "board_part" $brd_part $obj
 set_property "simulator_language" "Mixed" $obj
-set_property "target_language" "VHDL" $obj
+set_property "target_language" "verilog" $obj
 
 # Create 'sources_1' fileset (if not found)
 if {[string equal [get_filesets -quiet sources_1] ""]} {
@@ -69,10 +69,10 @@ update_ip_catalog
 
 # Create 'synth_1' run (if not found)
 if {[string equal [get_runs -quiet synth_1] ""]} {
-  create_run -name synth_1 -part $part -flow {Vivado Synthesis 2014} -strategy "Flow_RuntimeOptimized" -constrset constrs_1
+  create_run -name synth_1 -part $part -flow {Vivado Synthesis 2015} -strategy "Vivado Synthesis Defaults" -constrset constrs_1
 } else {
-  set_property strategy "Flow_RuntimeOptimized" [get_runs synth_1]
-  set_property flow "Vivado Synthesis 2014" [get_runs synth_1]
+  set_property strategy "Vivado Synthesis Defaults" [get_runs synth_1]
+  set_property flow "Vivado Synthesis 2015" [get_runs synth_1]
 }
 set obj [get_runs synth_1]
 set_property "part" $part $obj
@@ -85,10 +85,10 @@ current_run -synthesis [get_runs synth_1]
 
 # Create 'impl_1' run (if not found)
 if {[string equal [get_runs -quiet impl_1] ""]} {
-  create_run -name impl_1 -part $part -flow {Vivado Implementation 2014} -strategy "Flow_RuntimeOptimized" -constrset constrs_1 -parent_run synth_1
+  create_run -name impl_1 -part $part -flow {Vivado Implementation 2015} -strategy "Vivado Implementation Defaults" -constrset constrs_1 -parent_run synth_1
 } else {
-  set_property strategy "Flow_RuntimeOptimized" [get_runs impl_1]
-  set_property flow "Vivado Implementation 2014" [get_runs impl_1]
+  set_property strategy "Vivado Implementation Defaults" [get_runs impl_1]
+  set_property flow "Vivado Implementation 2015" [get_runs impl_1]
 }
 set obj [get_runs impl_1]
 set_property "part" $part $obj

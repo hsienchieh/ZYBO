@@ -113,3 +113,4 @@ set obj [get_filesets sources_1]
 set_property "top" "${design_name}_wrapper" $obj
 
 puts "INFO: Block design created: $design_name.bd"
+

@@ -377,6 +377,11 @@ CONFIG.PCW_USB0_RESET_ENABLE {1} \
 CONFIG.PCW_USB0_RESET_IO {MIO 46} \
 CONFIG.PCW_USE_FABRIC_INTERRUPT {1} \
 CONFIG.PCW_USE_S_AXI_HP0 {1} \
+CONFIG.PCW_WDT_PERIPHERAL_CLKSRC {CPU_1X} \
+CONFIG.PCW_WDT_PERIPHERAL_DIVISOR0 {1} \
+CONFIG.PCW_WDT_PERIPHERAL_ENABLE {0} \
+CONFIG.PCW_WDT_PERIPHERAL_FREQMHZ {133.333333} \
+CONFIG.PCW_WDT_WDT_IO {<Select>} \
 CONFIG.preset {Default} \
  ] $processing_system7_0
 
@@ -390,6 +395,7 @@ CONFIG.NUM_MI {7} \
   set rgb2dvi_0 [ create_bd_cell -type ip -vlnv digilentinc.com:ip:rgb2dvi:1.2 rgb2dvi_0 ]
   set_property -dict [ list \
 CONFIG.kClkRange {2} \
+CONFIG.kClkPrimitive {PLL} \
 CONFIG.kGenerateSerialClk {false} \
 CONFIG.kRstActiveHigh {false} \
  ] $rgb2dvi_0

@@ -501,9 +501,10 @@ CONFIG.NUM_MI {14} \
  ] $processing_system7_0_axi_periph
 
   # Create instance: rgb2dvi_0, and set properties
-  set rgb2dvi_0 [ create_bd_cell -type ip -vlnv digilentinc.com:ip:rgb2dvi:1.3 rgb2dvi_0 ]
+  set rgb2dvi_0 [ create_bd_cell -type ip -vlnv digilentinc.com:ip:rgb2dvi:1.2 rgb2dvi_0 ]
   set_property -dict [ list \
 CONFIG.kClkRange {2} \
+CONFIG.kClkPrimitive {"PLL"} \
 CONFIG.kGenerateSerialClk {false} \
 CONFIG.kRstActiveHigh {false} \
  ] $rgb2dvi_0
